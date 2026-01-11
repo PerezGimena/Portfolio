@@ -29,7 +29,7 @@ export const listaProyectos = [
   },
   {
     id: 4,
-    titulo: "Monitor Dólar Argentina",
+    titulo: "DolarAR",
     descripcion: "Aplicación que consume APIs externas en tiempo real para mostrar la cotización del dólar. Diseño responsive y conversión automática de divisas.",
     tecnologias: ["React", "API REST", "CSS Modules"],
     imagen: "./dolarAR.png",
