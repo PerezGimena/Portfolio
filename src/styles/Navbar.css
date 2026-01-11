@@ -56,6 +56,10 @@
 @media (max-width: 768px) {
   .hamburger { display: block; }
 
+  .navbar{
+    padding: 0 1rem;
+  }
+
   .nav-menu {
     position: absolute;
     top: 70px;
