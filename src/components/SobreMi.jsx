@@ -38,7 +38,7 @@ export const SobreMi = () => {
             </p>
             <p>
              Nunca dejo de aprender, cada nuevo proyecto es una 
-             oportunidad para mejorar y optimizar mi código."
+             oportunidad para mejorar y optimizar mi código.
             </p>
           </motion.div>
 
