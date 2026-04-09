@@ -1,42 +1,124 @@
+/* ── Sobre Mí ─────────────────────────────────────────────────── */
 .sobre-mi {
-  background-color: #1f2937;
-  padding: 100px 20px;
+  background-color: var(--bg-body);
+  padding: 120px 20px;
   color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow decorativo */
+.sobre-mi::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .contenedor-sobre-mi {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
+/* ── Section title shared ── */
 .titulo-seccion {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-align: center;
-  margin-bottom: 3rem;
-  font-weight: 700;
+  margin-bottom: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .titulo-seccion span {
-  border-bottom: 4px solid var(--primary);
-  padding-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  color: #fff;
 }
 
+.titulo-seccion span::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #7c3aed, #a855f7, transparent);
+  border-radius: 2px;
+}
+
+/* ── Grid ── */
 .grid-sobre-mi {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
   align-items: center;
 }
 
-
+/* ── Text ── */
 .texto-sobre-mi p {
   color: var(--text-muted);
-  line-height: 1.8;
+  line-height: 1.9;
   font-size: 1.05rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
 }
 
+.texto-sobre-mi p:last-child { margin-bottom: 0; }
 
+.texto-sobre-mi strong {
+  color: #c084fc;
+  font-weight: 600;
+}
+
+/* quote destacada */
+.sobre-mi-quote {
+  position: relative;
+  border-left: 3px solid #7c3aed;
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #c4b5fd;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* mini stats */
+.sobre-mi-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Photo ── */
 .foto-container {
   position: relative;
   display: flex;
@@ -46,62 +128,84 @@
 
 .foto-perfil {
   width: 300px;
-  height: 350px;
+  height: 370px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 20px;
   z-index: 2;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  border: 2px solid rgba(59, 130, 246, 0.3);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(168, 85, 247, 0.2);
+  transition: transform 0.4s ease;
 }
 
+.foto-container:hover .foto-perfil {
+  transform: scale(1.02);
+}
+
+/* marco desplazado */
 .marco-foto {
   position: absolute;
-  top: 20px;
-  right: 10%; 
+  top: 22px;
+  right: calc(10% - 10px);
   width: 300px;
-  height: 350px;
-  border: 2px solid var(--primary);
-  border-radius: 15px;
+  height: 370px;
+  border: 2px solid rgba(168, 85, 247, 0.45);
+  border-radius: 20px;
   z-index: 1;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .foto-container:hover .marco-foto {
-  transform: translate(10px, 10px);
+  transform: translate(12px, 12px);
 }
 
-@media (max-width: 768px) {
-  
-  .sobre-mi {
-    padding: 60px 20px; 
-  }
+/* partícula decorativa sobre la foto */
+.foto-dot {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -15px;
+  left: 12%;
+  z-index: 3;
+  filter: blur(10px);
+}
 
-  .titulo-seccion { 
-    font-size: 2rem; 
-    margin-bottom: 2rem;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sobre-mi { padding: 80px 20px; }
+
+  .titulo-seccion {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
   }
 
   .grid-sobre-mi {
     grid-template-columns: 1fr;
     gap: 3rem;
-    text-align: center; 
+    text-align: center;
   }
 
+  .texto-sobre-mi { order: 2; }
 
-  .texto-sobre-mi {
-    order: 2; 
+  .sobre-mi-stats {
+    justify-content: center;
+  }
+
+  .sobre-mi-quote {
+    text-align: left;
   }
 
   .foto-perfil, .marco-foto {
-    width: 250px; 
+    width: 240px;
     height: 300px;
   }
 
   .marco-foto {
-    right: auto; 
+    right: auto;
     left: 50%;
     top: 50%;
-    transform: translate(-45%, -45%); 
+    transform: translate(-44%, -44%);
   }
 
   .foto-container:hover .marco-foto {
